@@ -7,15 +7,20 @@
 //
 
 #import "AppDelegate.h"
+#import <Parse/Parse.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+    [Parse setApplicationId:@"rCPBlnxzHYK750lmxmfAXvmAbxXXRHzzaxnVQ1q4"
+                  clientKey:@"9LjuewfDo5EuxF6OXgaWjUgPBILLtjisr7RRyVes"];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    UIImage * thumbImage = [UIImage imageNamed:@"slider-cap.png"];
+    [[UISlider appearance] setThumbImage:thumbImage forState:UIControlStateNormal];
+    [[UISlider appearance] setThumbImage:thumbImage forState:UIControlStateHighlighted];
+    
     return YES;
 }
 
